@@ -1,0 +1,83 @@
+<div class="content-wrapper">
+  <div>
+    <h1>Employees</h1>
+  </div>
+  <div class="row">
+    <table class="row-border hover">
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>Finish Date</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>Job Title</th>
+          <th>Hourly Pay</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td class="selected"><input type="checkbox" [(ngModel)]="employee.selected"></td>
+          <td class="name">{{ employee.name }}</td>
+          <td class="name">{{ employee.startDateString }}</td>
+          <td class="name">{{ employee.finishDateString }}</td>
+          <td class="name">{{ employee.email }}</td>
+          <td class="name">{{ employee.contactNumber }}</td>
+          <td class="name">{{ employee.title }}</td>
+          <td class="name">{{ employee.hourlyPay }}</td>
+          <td class="name">{{ employee.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="right-button" (click)="DeleteEmployee();" name="delete" id="btnDelete">Delete</button>
+  </div>
+  <div class="row">
+    <form #employeeForm="ngForm">
+      <div>
+        <label for="name">
+          Name
+        </label>
+        <input type="text" class="form-control name" id="name" [(ngModel)]="employee.name" name="name" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="startDate">
+          Start Date
+        </label>
+        <input type="datetime-local" class="form-control" id="startDate" [(ngModel)]="employee.startDate" name="startDate" #name="ngModel">
+      </div>
+      <div>
+        <label for="finishDate">
+          Finish Date
+        </label>
+        <input type="datetime-local" class="form-control" id="finishDate" [(ngModel)]="employee.finishDate" name="finishDate" #name="ngModel">
+      </div>
+      <div>
+        <label for="email">
+          Email
+        </label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="employee.email" name="email" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="contactNumber">
+          Contact Number
+        </label>
+        <input type="text" class="form-control" id="contactNumber" [(ngModel)]="employee.contactNumber" name="contactNumber" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="name">
+          Hourly Pay
+        </label>
+        <input type="number" class="form-control" id="hourlyPay" [(ngModel)]="employee.hourlyPay" name="hourlyPay" #name="ngModel">
+      </div>
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input type="text" class="form-control description" id="description" [(ngModel)]="employee.description" name="description" #name="ngModel" required>
+      </div>
+      <button type="button" (click)="AddEmployee();" [disabled]="!employeeForm.form.valid" name="add" id="btnAdd">Add Employee</button>
+    </form>
+  </div>
+</div>

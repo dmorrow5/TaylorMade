@@ -1,0 +1,4 @@
+enum propertyType {
+    Residential,
+    Commercial
+  }

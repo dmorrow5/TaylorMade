@@ -1,0 +1,65 @@
+<div class="content-wrapper">
+  <div>
+    <h1>Equipment</h1>
+  </div>
+  <div class="row">
+    <table class="row-border hover">
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Cost</th>
+          <th>Location</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let equipment of equipments">
+          <td class="selected"><input type="checkbox" [(ngModel)]="equipment.selected"></td>
+          <td class="name">{{ equipment.name }}</td>
+          <td class="name">{{ equipment.quantity }}</td>
+          <td class="name">{{ equipment.cost }}</td>
+          <td class="name">{{ equipment.location }}</td>
+          <td class="name">{{ equipment.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="right-button" (click)="DeleteEquipment();" name="delete" id="btnDelete">Delete</button>
+  </div>
+  <div class="row">
+    <form #equipmentForm="ngForm">
+      <div>
+        <label for="name">
+          Name
+        </label>
+        <input type="text" class="form-control name" id="name" [(ngModel)]="equipment.name" name="name" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="quantity">
+          Quantity
+        </label>
+        <input type="number" class="form-control" id="quantity" [(ngModel)]="equipment.quantity" name="quantity" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="cost">
+          Cost
+        </label>
+        <input type="number" class="form-control" id="cost" [(ngModel)]="equipment.cost" name="cost" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="location">
+          Location
+        </label>
+        <input type="text" class="form-control" id="location" [(ngModel)]="equipment.location" name="location" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input type="text" class="form-control description" id="description" [(ngModel)]="equipment.description" name="description" #name="ngModel" required>
+      </div>
+      <button type="button" (click)="AddEquipment();" [disabled]="!equipmentForm.form.valid" name="add" id="btnAdd">Add Equipment</button>
+    </form>
+  </div>
+</div>

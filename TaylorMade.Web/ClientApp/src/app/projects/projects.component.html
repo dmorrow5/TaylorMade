@@ -1,0 +1,70 @@
+<div class="content-wrapper">
+  <div>
+    <h1>Projects</h1>
+  </div>
+  <div class="row">
+    <table class="row-border hover">
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Name</th>
+          <th>Property Type</th>
+          <th>Project Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td class="selected"><input type="checkbox" [(ngModel)]="project.selected"></td>
+          <td class="name">{{ project.name }}</td>
+          <td class="name">{{ project.propertyType == 0 ? 'Commercial' : 'Residential' }}</td>
+          <td class="name">{{ project.projectTypeName }}</td>
+          <td class="name">{{ project.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="right-button" (click)="DeleteProject();" name="add" id="btnAdd">Delete</button>
+  </div>
+  <div class="row">
+    <form #projectForm="ngForm">
+      <div>
+        <label for="name">
+          Name
+        </label>
+        <input type="text" class="form-control name" id="name" [(ngModel)]="project.name" name="name" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="propertyType">
+          Property Type
+        </label>
+        <select matNativeControl 
+          name="propertyType" 
+          class="form-control" 
+          placeholder="Select Property Type"
+          [(ngModel)]="project.propertyType">
+            <option [value]="0">Commercial</option>
+            <option [value]="1">Residential</option>
+        </select>
+      </div>
+      <div>
+        <label for="propertyType">
+          Project Type
+        </label>
+        <select matNativeControl 
+        name="projectType" 
+        class="form-control" 
+        placeholder="Select Project Type"
+        [(ngModel)]="project.projectTypeId">
+          <option *ngFor="let projectType of projectTypes" [value]="projectType.id">{{projectType.name}}</option>
+      </select>
+      </div>
+      <div>
+        <label for="description">
+          Description
+        </label>
+        <input type="text" class="form-control description" id="description" [(ngModel)]="project.description" name="description" #name="ngModel" required>
+      </div>
+      <button type="button" (click)="AddProject();" [disabled]="!projectForm.form.valid" name="add" id="btnAdd">Add Project</button>
+    </form>
+  </div>
+</div>

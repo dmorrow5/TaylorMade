@@ -1,0 +1,101 @@
+<div class="content-wrapper">
+  <div>
+    <h1>Contracts</h1>
+  </div>
+  <div class="row">
+    <table class="row-border hover">
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Name</th>
+          <th>Customer</th>
+          <th>Project</th>
+          <th>Start Date</th>
+          <th>Finish Date</th>
+          <th>Estimated Cost</th>
+          <th>Actual Cost</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contract of contracts">
+          <td class="selected"><input type="checkbox" [(ngModel)]="contract.selected"></td>
+          <td class="name">{{ contract.name }}</td>
+          <td class="name">{{ contract.customerName }}</td>
+          <td class="name">{{ contract.projectName }}</td>
+          <td class="name">{{ contract.startDateString }}</td>
+          <td class="name">{{ contract.finishDateString }}</td>
+          <td class="name">{{ contract.estimatedCost }}</td>
+          <td class="name">{{ contract.actualCost }}</td>
+          <td class="name">{{ contract.notes }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="right-button" (click)="DeleteContract();" name="add" id="btnAdd">Delete</button>
+  </div>
+  <div class="row">
+    <form #contractForm="ngForm">
+      <div>
+        <label for="name">
+          Name
+        </label>
+        <input type="text" class="form-control name" id="name" [(ngModel)]="contract.name" name="name" #name="ngModel">
+      </div>
+      <div>
+        <label for="customer">
+          Customer
+        </label>
+        <select matNativeControl 
+        name="customer" 
+        class="form-control" 
+        placeholder="Select Customer"
+        [(ngModel)]="contract.customerId">
+          <option *ngFor="let customer of customers" [value]="customer.id">{{customer.name}}</option>
+      </select>
+    </div>
+      <div>
+        <label for="project">
+          Project
+        </label>
+        <select matNativeControl 
+        name="project" 
+        class="form-control" 
+        placeholder="Select Project"
+        [(ngModel)]="contract.projectId">
+          <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+      </select>
+    </div>
+      <div>
+        <label for="startDate">
+          Start Date
+        </label>
+        <input type="datetime-local" class="form-control" id="startDate" [(ngModel)]="contract.startDate" name="startDate" #name="ngModel">
+      </div>
+      <div>
+        <label for="finishDate">
+          Finish Date
+        </label>
+        <input type="datetime-local" class="form-control" id="finishDate" [(ngModel)]="contract.finishDate" name="finishDate" #name="ngModel">
+      </div>
+      <div>
+        <label for="estimatedCost">
+          Estimated Cost
+        </label>
+        <input type="number" class="form-control" id="estimatedCost" [(ngModel)]="contract.estimatedCost" name="estimatedCost" #name="ngModel">
+      </div>
+      <div>
+        <label for="actualCost">
+          Actual Cost
+        </label>
+        <input type="number" class="form-control" id="actualCost" [(ngModel)]="contract.actualCost" name="actualCost" #name="ngModel">
+      </div>
+      <div>
+        <label for="notes">
+          Notes
+        </label>
+        <input type="text" class="form-control description" id="notes" [(ngModel)]="contract.notes" name="notes" #name="ngModel">
+      </div>
+      <button type="button" (click)="AddContract();" [disabled]="!contractForm.form.valid" name="add" id="btnAdd">Add Contract</button>
+    </form>
+  </div>
+</div>

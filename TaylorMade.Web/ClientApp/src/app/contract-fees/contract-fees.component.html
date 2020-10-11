@@ -1,0 +1,41 @@
+<div class="content-wrapper">
+  <div>
+    <h1>Contract Fees</h1>
+  </div>
+  <div class="row">
+    <table class="row-border hover">
+      <thead>
+        <tr>
+          <th> </th>
+          <th>Name</th>
+          <th>Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contractFee of contractFees">
+          <td class="selected"><input type="checkbox" [(ngModel)]="contractFee.selected"></td>
+          <td class="name">{{ contractFee.name }}</td>
+          <td class="cost">{{ contractFee.cost }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="right-button" (click)="DeleteContractFee();" name="add" id="btnAdd">Delete</button>
+  </div>
+  <div class="row">
+    <form #contractFeeForm="ngForm">
+      <div>
+        <label for="name">
+          Name
+        </label>
+        <input type="text" class="form-control name" id="name" [(ngModel)]="contractFee.name" name="name" #name="ngModel" required>
+      </div>
+      <div>
+        <label for="cost">
+          Cost
+        </label>
+        <input type="number" class="form-control" id="cost" [(ngModel)]="contractFee.cost" name="cost" #name="ngModel" required>
+      </div>
+      <button type="button" (click)="AddContractFee();" [disabled]="!contractFeeForm.form.valid" name="add" id="btnAdd">Add Contract Fee</button>
+    </form>
+  </div>
+</div>
