@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -24,6 +25,7 @@ import { ProjectsModule } from './projects/projects.module';
 import { ProjectTypesModule } from './project-types/project-types.module';
 import { ContractFeesModule } from './contract-fees/contract-fees.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DataService } from './shared/data.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContractFeesModule,
     ProjectTypesModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ContractsComponent, pathMatch: 'full' },
       { path: 'projects', component: ProjectsComponent },
@@ -56,7 +59,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ]),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

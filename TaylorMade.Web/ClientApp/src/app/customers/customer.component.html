@@ -1,0 +1,46 @@
+<div role="document">
+  <div>
+    <form class="form-horizontal" id="add-form" [formGroup]="EntityForm" (ngSubmit)="onFormSubmit()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="add-modal-label">Add/Edit Customer</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control name" id="name" [(ngModel)]="customer.name" name="name" #name="ngModel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Address</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="address" [(ngModel)]="customer.address" name="address" #name="ngModel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" [(ngModel)]="customer.email" name="email" #name="ngModel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Contact Number</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="contactNumber" [(ngModel)]="customer.contactNumber" name="contactNumber" #name="ngModel" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control description" id="description" [(ngModel)]="customer.description" name="description" #name="ngModel" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -3,6 +3,8 @@
     <h1>Customers</h1>
   </div>
   <div class="row">
+    <span (click)="addNewEntity()" class="btn btn-primary btn-xs">Add New Customer</span>
+    <br /><br />
     <table class="row-border hover">
       <thead>
         <tr>
@@ -27,7 +29,7 @@
     </table>
     <button type="button" class="right-button" (click)="DeleteCustomer();" name="delete" id="btnDelete">Delete</button>
   </div>
-  <div class="row">
+  <!--<div class="row">
     <form #customerForm="ngForm">
       <div>
         <label for="name">
@@ -61,5 +63,5 @@
       </div>
       <button type="button" (click)="AddCustomer();" [disabled]="!customerForm.form.valid" name="add" id="btnAdd">Add Customer</button>
     </form>
-  </div>
+  </div>-->
 </div>
