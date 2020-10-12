@@ -76,7 +76,4 @@
   <ItemGroup>
     <RefactorLog Include="TaylorMade.Database.refactorlog" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="PublishProfiles\Azure.TaylorMade.Database.publish.publish.xml" />
-  </ItemGroup>
 </Project>
